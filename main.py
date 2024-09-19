@@ -6,10 +6,6 @@ from sliderWidget import SliderWidget
 from nextWidget import NextWidget
 from prevWidget import PrevWidget
 
-def closeApp(event):
-    sliderWidget.close()
-    event.accept()
-
 def showSlider():
     try:
         sliderWidget.horizontalSlider.setValue(int(mainWindow.label.text()))
@@ -40,7 +36,6 @@ def displayNumber():
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setStyle('Fusion')
-    app.aboutToQuit.connect(closeApp)
 
     sliderWidget = SliderWidget(app)
     sliderWidget.okBtn.clicked.connect(displayNumber)
